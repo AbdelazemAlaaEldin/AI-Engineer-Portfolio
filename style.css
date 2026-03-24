@@ -1,0 +1,543 @@
+:root {
+    --primary: #4e342e;
+    --secondary: #a67b5b;
+    --accent: #d7b594;
+    --bg-light: #fdfaf5;
+    --bg-dark: #1b1613;
+    --text-light: #3e2723;
+    --text-dark: #efebe9;
+    --transition: 0.4s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body.light-theme {
+    background: var(--bg-light);
+    color: var(--text-light);
+}
+
+body.dark-theme {
+    background: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.dark-theme nav {
+    background: rgba(27, 22, 19, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 5px;
+}
+
+.nav-links a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--text-light);
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+body.dark-theme .nav-links a {
+    color: var(--text-dark);
+}
+
+.nav-links a:hover {
+    background: var(--secondary);
+    color: white;
+    border-radius: 5px;
+}
+
+.nav-controls button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.section {
+    padding: 120px 10%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 32px;
+    margin-bottom: 60px;
+    display: inline-block;
+    border-bottom: 4px solid var(--secondary);
+    padding-bottom: 10px;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 300px;
+}
+
+.hero-left {
+    text-align: left;
+    max-width: 550px;
+}
+
+.hero-left h1 {
+    font-size: 65px;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.hero-left span {
+    color: var(--secondary);
+}
+
+.big-profile {
+    width: 320px;
+    height: 380px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 20px 20px 0px var(--secondary);
+    border: 5px solid var(--primary);
+}
+
+.big-profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    text-align: left;
+}
+
+.about-image img {
+    width: 320px;
+    border-radius: 20px;
+}
+
+.about-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* تعديل الـ Grid ليكون مرناً */
+.edu-grid {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+/* تصغير الكاردات وضبط حجمها */
+.edu-card {
+    flex: 1 1 300px;
+    /* يسمح للكارد بالنمو والتقلص بعرض أساسي 300px */
+    max-width: 350px;
+    /* يمنع الكارد من التضخم الزائد في الشاشات الكبيرة */
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    background: white;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+body.dark-theme .edu-card {
+    background: #2c2420;
+}
+
+.edu-card:hover {
+    transform: translateY(-10px);
+}
+
+.edu-img-wrapper {
+    height: 180px;
+    /* تقليل الارتفاع قليلاً ليناسب العرض الجديد */
+    position: relative;
+    overflow: hidden;
+}
+
+.edu-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.edu-card:hover .edu-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.edu-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(78, 52, 46, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.edu-card:hover .edu-overlay {
+    opacity: 1;
+}
+
+.card-content {
+    padding: 20px;
+    text-align: left;
+}
+
+.service-icon {
+    font-size: 2rem;
+    color: var(--secondary);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.hidden-info {
+    display: none;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+}
+
+.edu-card.active .hidden-info {
+    display: block;
+}
+
+.project-link {
+    color: var(--secondary);
+    text-decoration: underline;
+    font-weight: 600;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.filter-bar {
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    padding: 10px 25px;
+    border: none;
+    background: var(--accent);
+    margin: 5px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn.active {
+    background: var(--primary);
+    color: white;
+}
+
+.skills-grid {
+    display: flex;
+    /* رجعنا للـ flex لأنه أضمن في توزيع المساحات الصغيرة */
+    flex-wrap: wrap;
+    /* عشان ينزلوا سطر جديد لو الزيادة كترت */
+    gap: 20px;
+    justify-content: center;
+    /* يخليهم في نص الشاشة بالظبط */
+    padding: 20px 0;
+}
+
+.skill-card {
+    padding: 20px 10px;
+    border-radius: 15px;
+    width: 160px;
+    /* عرض ثابت ومناسب لكل الكروت عشان ميعرضوش بزيادة */
+    min-height: 150px;
+    /* ارتفاع ثابت عشان "AI Libraries" متخليش كارت أطول من التاني */
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* التعديل ده عشان الكلام الطويل ميزقش حدود الكارت */
+.skill-card p {
+    font-size: 13px;
+    /* صغرنا الخط سنة للأسماء الطويلة */
+    font-weight: 600;
+    margin-top: 10px;
+    word-wrap: break-word;
+    width: 100%;
+}
+
+/* إخفاء الكروت بناءً على الفلترة (مهمة جداً للـ JavaScript اللي عندك) */
+.skill-card[style*="display: none"] {
+    display: none !important;
+}
+
+body.dark-theme .skill-card {
+    background: #2c2420;
+}
+
+.skill-card i {
+    font-size: 35px;
+    color: var(--secondary);
+    margin-bottom: 5px;
+}
+
+/* حركة بسيطة لما تقف بالماوس على السكيل */
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.standalone-card {
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+body.dark-theme .standalone-card {
+    background: #2c2420;
+}
+
+/* الحاوية الرئيسية */
+.contact-wrapper {
+    display: flex;
+    justify-content: center;
+    /* لسنترة القسم في منتصف الصفحة */
+    align-items: flex-start;
+    /* لضمان بدء الجانبين من نفس المستوى العلوي */
+    max-width: 1000px;
+    margin: 60px auto;
+    gap: 80px;
+    /* المسافة الفاصلة بين الأيقونات والفورم */
+    padding: 0 20px;
+}
+
+/* تنسيق جانب الأيقونات */
+.contact-side-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* المسافة بين الأيقونات وبعضها */
+    flex-shrink: 0;
+}
+
+.icon-box {
+    width: 55px;
+    height: 55px;
+    background: #c89b74;
+    /* لونك المعتمد */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    box-shadow: 0 5px 15px rgba(200, 155, 116, 0.2);
+    transition: all 0.3s ease;
+}
+
+.icon-box:hover {
+    transform: translateY(-5px);
+    background: #2c2420;
+    /* تغيير اللون عند الوقوف بالماوس */
+}
+
+/* تنسيق جانب الفورم */
+.contact-side-form {
+    flex: 1;
+    /* ليأخذ المساحة المتبقية بالتساوي */
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-side-form input,
+.contact-side-form textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(200, 155, 116, 0.3);
+    background: #fdfaf7;
+    font-size: 0.95rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.contact-side-form input:focus,
+.contact-side-form textarea:focus {
+    border-color: #c89b74;
+    background: white;
+    box-shadow: 0 0 10px rgba(200, 155, 116, 0.1);
+}
+
+.contact-side-form button {
+    padding: 15px;
+    background: #2c2420;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-side-form button:hover {
+    background: #c89b74;
+    letter-spacing: 1px;
+}
+
+/* الاستجابة للهواتف (Responsive) */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .contact-side-info {
+        flex-direction: row;
+        /* جعل الأيقونات بجوار بعضها في الموبايل */
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-side-info {
+        flex-direction: row;
+        /* الأيقونات بالعرض في الموبايل */
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .hero-container,
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-left {
+        text-align: center;
+    }
+
+    .hero-left h1 {
+        font-size: 40px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .edu-card {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+}
+
+/* --- إضافة تنسيق الأيقونات الجديدة في الهيرو --- */
+.hero-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    /* المسافة بين اللوجوهات */
+    margin-top: 20px;
+}
+
+.hero-links a {
+    font-size: 30px;
+    /* حجم اللوجو */
+    color: var(--secondary);
+    /* اللون البني الفاتح */
+    transition: var(--transition);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.hero-links a:hover {
+    color: var(--primary);
+    /* اللون يغمق لما تقف عليه */
+    transform: translateY(-5px);
+    /* حركة طلوع خفيفة */
+}
+
+.hero-links .loc {
+    font-size: 16px;
+    margin-left: 10px;
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ------------------------------------------ */
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    /* هذا الكود سيخفي الشريط السفلي فوراً */
+    width: 100%;
+}
