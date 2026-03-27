@@ -55,3 +55,29 @@ document.getElementById('lang-toggle').addEventListener('click', function () {
         if (placeholder) input.setAttribute('placeholder', placeholder);
     });
 });
+
+// تفعيل السلايدر لقسم الخدمات فقط
+const serviceGrid = document.querySelector('#services .edu-grid');
+const serviceDots = document.querySelectorAll('.dot');
+const nextService = document.querySelector('.next-arrow');
+const prevService = document.querySelector('.prev-arrow');
+
+if (serviceGrid) {
+    nextService.addEventListener('click', () => {
+        const cardWidth = serviceGrid.querySelector('.edu-card').offsetWidth + 20;
+        serviceGrid.scrollLeft += cardWidth;
+    });
+
+    prevService.addEventListener('click', () => {
+        const cardWidth = serviceGrid.querySelector('.edu-card').offsetWidth + 20;
+        serviceGrid.scrollLeft -= cardWidth;
+    });
+
+    serviceGrid.addEventListener('scroll', () => {
+        const cardWidth = serviceGrid.querySelector('.edu-card').offsetWidth + 20;
+        const index = Math.round(serviceGrid.scrollLeft / cardWidth);
+        serviceDots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    });
+}

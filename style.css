@@ -1,6 +1,6 @@
 :root {
-    --primary: #4e342e;
-    --secondary: #a67b5b;
+    --primary: #3b2722;
+    --secondary: #8b5e3c;
     --accent: #d7b594;
     --bg-light: #fdfaf5;
     --bg-dark: #1b1613;
@@ -77,6 +77,11 @@ body.dark-theme .nav-links a {
     border-radius: 5px;
 }
 
+.nav-controls {
+    display: flex;
+    gap: 10px;
+}
+
 .nav-controls button {
     background: var(--primary);
     color: white;
@@ -84,6 +89,116 @@ body.dark-theme .nav-links a {
     padding: 8px 15px;
     border-radius: 5px;
     cursor: pointer;
+}
+
+/* --- [بداية تعديل الـ Hero في مكانه] --- */
+.hero {
+    min-height: 100vh;
+    /* تغيير الارتفاع ليكون مرنًا */
+    display: flex;
+    align-items: center;
+    padding: 120px 8%;
+    /* مسافة علوية كافية أسفل الـ Nav */
+}
+
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    /* توزيع العناصر على الجوانب */
+    align-items: center;
+    width: 100%;
+    gap: 50px;
+    /* فجوة معقولة */
+    flex-wrap: wrap;
+    /* للسماح بنزول العناصر في الموبايل */
+}
+
+.hero-left {
+    text-align: left;
+    max-width: 550px;
+    flex: 1;
+    min-width: 300px;
+    /* لضمان عدم صغر النص أكثر من اللازم */
+}
+
+.hero-left h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    /* حجم خط مرن */
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.hero-right {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.big-profile {
+    width: min(100%, 350px);
+    /* حجم الصورة لا يتعدى 100% أو 350px */
+    height: auto;
+    aspect-ratio: 4/5;
+    /* الحفاظ على تناسق الأبعاد */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 20px 20px 0px var(--secondary);
+    border: 5px solid var(--primary);
+}
+
+/* --- [نهاية تعديل الـ Hero] --- */
+
+.hero-left h1 span {
+    color: #5c4033;
+}
+
+.role {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+body.dark-theme .role {
+    color: #e6c3a3;
+}
+
+.big-profile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    /* مرونة في ترتيب الأيقونات */
+}
+
+.hero-links a {
+    font-size: 30px;
+    color: var(--secondary);
+    transition: var(--transition);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.hero-links a:hover {
+    color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.hero-links .loc {
+    font-size: 16px;
+    margin-left: 10px;
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .section {
@@ -97,50 +212,6 @@ body.dark-theme .nav-links a {
     display: inline-block;
     border-bottom: 4px solid var(--secondary);
     padding-bottom: 10px;
-}
-
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-}
-
-.hero-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    gap: 300px;
-}
-
-.hero-left {
-    text-align: left;
-    max-width: 550px;
-}
-
-.hero-left h1 {
-    font-size: 65px;
-    line-height: 1.1;
-    margin-bottom: 15px;
-}
-
-.hero-left span {
-    color: var(--secondary);
-}
-
-.big-profile {
-    width: 320px;
-    height: 380px;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 20px 20px 0px var(--secondary);
-    border: 5px solid var(--primary);
-}
-
-.big-profile img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 .about-container {
@@ -161,21 +232,21 @@ body.dark-theme .nav-links a {
     margin-bottom: 20px;
 }
 
-/* تعديل الـ Grid ليكون مرناً */
 .edu-grid {
     display: flex;
     gap: 25px;
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
+    /* السطر اللي جاي هو الحل */
+    align-items: flex-start;
 }
 
-/* تصغير الكاردات وضبط حجمها */
 .edu-card {
-    flex: 1 1 300px;
-    /* يسمح للكارد بالنمو والتقلص بعرض أساسي 300px */
-    max-width: 350px;
-    /* يمنع الكارد من التضخم الزائد في الشاشات الكبيرة */
+    flex: 1 1 280px;
+    /* يسمح للكارد بالنمو والتقلص بعرض أساسي 280px */
+    max-width: 320px;
+    /* تم تصغير أقصى عرض للكارد ليصبح 320px بدلاً من 350px */
     border-radius: 20px;
     overflow: hidden;
     cursor: pointer;
@@ -186,8 +257,21 @@ body.dark-theme .nav-links a {
     flex-direction: column;
 }
 
-body.dark-theme .edu-card {
-    background: #2c2420;
+/* --- [نهاية تعديل الـ Grids] --- */
+/* تعديل لون مربعات الإدخال فقط في الدارك مود */
+body.dark-theme .contact-side-form input,
+body.dark-theme .contact-side-form textarea {
+    background-color: #edd4b9 !important;
+    /* اللون البيج */
+    color: #3b2722 !important;
+    /* لون الخط بني غامق عشان يبان على البيج */
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+/* لون الكلام المؤقت (Placeholder) جوه المربعات */
+body.dark-theme .contact-side-form input::placeholder,
+body.dark-theme .contact-side-form textarea::placeholder {
+    color: rgba(59, 39, 34, 0.7) !important;
 }
 
 .edu-card:hover {
@@ -196,7 +280,6 @@ body.dark-theme .edu-card {
 
 .edu-img-wrapper {
     height: 180px;
-    /* تقليل الارتفاع قليلاً ليناسب العرض الجديد */
     position: relative;
     overflow: hidden;
 }
@@ -283,12 +366,9 @@ body.dark-theme .edu-card {
 
 .skills-grid {
     display: flex;
-    /* رجعنا للـ flex لأنه أضمن في توزيع المساحات الصغيرة */
     flex-wrap: wrap;
-    /* عشان ينزلوا سطر جديد لو الزيادة كترت */
     gap: 20px;
     justify-content: center;
-    /* يخليهم في نص الشاشة بالظبط */
     padding: 20px 0;
 }
 
@@ -296,9 +376,7 @@ body.dark-theme .edu-card {
     padding: 20px 10px;
     border-radius: 15px;
     width: 160px;
-    /* عرض ثابت ومناسب لكل الكروت عشان ميعرضوش بزيادة */
     min-height: 150px;
-    /* ارتفاع ثابت عشان "AI Libraries" متخليش كارت أطول من التاني */
     background: white;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
     transition: var(--transition);
@@ -309,17 +387,14 @@ body.dark-theme .edu-card {
     text-align: center;
 }
 
-/* التعديل ده عشان الكلام الطويل ميزقش حدود الكارت */
 .skill-card p {
     font-size: 13px;
-    /* صغرنا الخط سنة للأسماء الطويلة */
     font-weight: 600;
     margin-top: 10px;
     word-wrap: break-word;
     width: 100%;
 }
 
-/* إخفاء الكروت بناءً على الفلترة (مهمة جداً للـ JavaScript اللي عندك) */
 .skill-card[style*="display: none"] {
     display: none !important;
 }
@@ -334,7 +409,6 @@ body.dark-theme .skill-card {
     margin-bottom: 5px;
 }
 
-/* حركة بسيطة لما تقف بالماوس على السكيل */
 .skill-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -353,26 +427,20 @@ body.dark-theme .standalone-card {
     background: #2c2420;
 }
 
-/* الحاوية الرئيسية */
 .contact-wrapper {
     display: flex;
     justify-content: center;
-    /* لسنترة القسم في منتصف الصفحة */
     align-items: flex-start;
-    /* لضمان بدء الجانبين من نفس المستوى العلوي */
     max-width: 1000px;
     margin: 60px auto;
     gap: 80px;
-    /* المسافة الفاصلة بين الأيقونات والفورم */
     padding: 0 20px;
 }
 
-/* تنسيق جانب الأيقونات */
 .contact-side-info {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    /* المسافة بين الأيقونات وبعضها */
     flex-shrink: 0;
 }
 
@@ -380,7 +448,6 @@ body.dark-theme .standalone-card {
     width: 55px;
     height: 55px;
     background: #c89b74;
-    /* لونك المعتمد */
     color: white;
     border-radius: 50%;
     display: flex;
@@ -394,13 +461,10 @@ body.dark-theme .standalone-card {
 .icon-box:hover {
     transform: translateY(-5px);
     background: #2c2420;
-    /* تغيير اللون عند الوقوف بالماوس */
 }
 
-/* تنسيق جانب الفورم */
 .contact-side-form {
     flex: 1;
-    /* ليأخذ المساحة المتبقية بالتساوي */
     max-width: 500px;
     display: flex;
     flex-direction: column;
@@ -442,8 +506,42 @@ body.dark-theme .standalone-card {
     letter-spacing: 1px;
 }
 
-/* الاستجابة للهواتف (Responsive) */
+/* --- [بداية تعديل الـ Media Queries في مكانه] --- */
 @media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .hero-container {
+        flex-direction: column-reverse;
+        /* الصورة تظهر تحت النص في الموبايل */
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-left {
+        text-align: center;
+    }
+
+    .hero-links {
+        justify-content: center;
+    }
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-image img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .section {
+        padding: 80px 5%;
+        /* تقليل الحواف في الموبايل */
+    }
+
     .contact-wrapper {
         flex-direction: column;
         align-items: center;
@@ -452,92 +550,121 @@ body.dark-theme .standalone-card {
 
     .contact-side-info {
         flex-direction: row;
-        /* جعل الأيقونات بجوار بعضها في الموبايل */
-    }
-}
-
-@media (max-width: 768px) {
-    .contact-wrapper {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .contact-side-info {
-        flex-direction: row;
-        /* الأيقونات بالعرض في الموبايل */
         justify-content: center;
     }
 }
 
-@media (max-width: 768px) {
-
-    .hero-container,
-    .about-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero-left {
-        text-align: center;
-    }
-
-    .hero-left h1 {
-        font-size: 40px;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .edu-card {
-        max-width: 100%;
-        flex: 1 1 100%;
-    }
-}
-
-/* --- إضافة تنسيق الأيقونات الجديدة في الهيرو --- */
-.hero-links {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    /* المسافة بين اللوجوهات */
-    margin-top: 20px;
-}
-
-.hero-links a {
-    font-size: 30px;
-    /* حجم اللوجو */
-    color: var(--secondary);
-    /* اللون البني الفاتح */
-    transition: var(--transition);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
-
-.hero-links a:hover {
-    color: var(--primary);
-    /* اللون يغمق لما تقف عليه */
-    transform: translateY(-5px);
-    /* حركة طلوع خفيفة */
-}
-
-.hero-links .loc {
-    font-size: 16px;
-    margin-left: 10px;
-    color: var(--secondary);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-/* ------------------------------------------ */
+/* --- [نهاية تعديل الـ Media Queries] --- */
 
 body,
 html {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    /* هذا الكود سيخفي الشريط السفلي فوراً */
     width: 100%;
+}
+
+.services-slider-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 50px;
+}
+
+#services .edu-grid {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 20px 10px;
+    scrollbar-width: none;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+}
+
+#services .edu-grid::-webkit-scrollbar {
+    display: none;
+}
+
+/* --- [بداية تعديل الـ Services Slider في مكانه] --- */
+#services .edu-card {
+    flex: 0 0 85%;
+    /* الكارت يأخذ أغلب عرض الموبايل */
+    max-width: 85%;
+}
+
+@media (min-width: 768px) {
+    #services .edu-card {
+        flex: 0 0 calc(45% - 20px);
+        max-width: calc(45% - 20px);
+    }
+}
+
+@media (min-width: 1024px) {
+    #services .edu-card {
+        flex: 0 0 calc(33.333% - 20px);
+        max-width: calc(33.333% - 20px);
+    }
+}
+
+/* --- [نهاية تعديل الـ Services Slider] --- */
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.prev-arrow {
+    left: 0;
+}
+
+.next-arrow {
+    right: 0;
+}
+
+.slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: var(--secondary);
+    width: 25px;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .slider-arrow {
+        display: none;
+    }
+}
+
+/* نص الهوم في الوضع الليلي */
+body.dark-theme .hero-left h1,
+body.dark-theme .hero-left h3,
+body.dark-theme .hero-left p,
+body.dark-theme .hero-left span,
+body.dark-theme .hero-links a,
+body.dark-theme .hero-links span {
+    color: #e4bca1 !important;
 }
