@@ -668,3 +668,23 @@ body.dark-theme .hero-links a,
 body.dark-theme .hero-links span {
     color: #e4bca1 !important;
 }
+
+/* تحويل خلفية كروت التعليم والخدمات للوضع الداكن */
+body.dark-theme .edu-card {
+    background: #2c2420;
+    /* نفس لون الكروت الأخرى في الداكن */
+    color: var(--text-dark);
+    /* لضمان أن النص بداخلها يصبح فاتحاً */
+}
+
+/* لضمان أن الخطوط الفاصلة بداخل الكروت لا تختفي أو تظهر بشكل سيء */
+body.dark-theme .hidden-info {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* إذا أردت تغيير لون الظل ليكون أنعم في الوضع الداكن */
+body.dark-theme .edu-card,
+body.dark-theme .skill-card,
+body.dark-theme .standalone-card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
